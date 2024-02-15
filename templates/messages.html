@@ -1,0 +1,12 @@
+{% load static %}
+
+{% if messages %}
+<div id="success-alert" class="alert-success" role="alert">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+<script src="{% static 'js/script.js' %}"></script>
+

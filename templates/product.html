@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %} 
+{% block meta_description %} Your meta description for the home page goes here. {% endblock %} 
+{% block meta_keywords %} Your meta keywords for the home page go here. {% endblock %} 
+{%block title %} Urban Styles | All Product {% endblock %} 
+{% block extra_head %}{# Add any additional head content specific to the home page here #} {% endblock%}
+
+{% block content %}
+
+<div class="new-release">
+  <div class="new-release-inner">
+    <div class="top">
+      <div class="top-outer-container">
+        <div class="top-inner-container">
+          <h3>All Products</h3>
+        </div>
+        <div id="sort" class="sort">
+          <p>Sort by</p>
+          <svg
+            id="sort-active"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"
+              fill="#1F0404"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="sort-width">
+        <div id="sort-category" class="sort-category">
+          <div class="sort-category-inner">
+            {% for category in categories %}
+              <div class="top">
+                  <a href="{% url 'all_products' category.name %}" {% if category.name == selected_category %}class="selected"{% endif %}>{{ category.name }}</a>
+              </div>
+              <hr />
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+        {% for product in products %}
+            <div class="new-release-item">
+              <div class="relative">
+          <a href="{% url 'product_details' product.name %}">
+
+              {% if product.image %}
+              <img class="relative-img" src="{{ product.image.url }}" alt="{{ product.name }}" />
+              {% else %}
+              <img
+                  class="relative-img"
+                  src="{% static 'img/PR1.svg' %}"
+                  alt="Placeholder Image"
+              />
+              {% endif %}
+            </a>
+
+              <img
+                  class="absolute  add-to-wishlist"
+                  data-product-id="{{ product.id }}"
+                  src="{% static 'img/FavoriteIcon.svg' %}"
+                  alt="Favorite Icon"
+              />
+              </div>
+              <div class="name-container">
+              <div class="name-block">
+                  <h4>{{product.name}}</h4>
+                  <p>N {{product.price}}</p>
+              </div>
+              <img class="add-to-cart"  data-product-id="{{ product.id }}" src="{% static 'img/Plus.svg' %}" alt="Cart Icon" />
+              </div>
+          </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="pagination">
+      {% if products.has_previous %}
+          <div class="prev">
+              <a href="?page=1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <g clip-path="url(#clip0_406_100)">
+                          <path d="M11.6733 2.5801L10.4933 1.4001L3.89334 8.0001L10.4933 14.6001L11.6733 13.4201L6.25334 8.0001L11.6733 2.5801Z" fill="#1F0404"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_406_100">
+                              <rect width="16" height="16" fill="white" transform="matrix(-1 0 0 -1 16 16)"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </a>
+              <a href="?page={{ products.previous_page_number }}">
+                  <p>Previous</p>
+              </a>
+          </div>
+      {% endif %}
+  
+      <div class="page-number">
+          <div class="number-frame">{{ products.number }}</div>
+          <p>of</p>
+          <p>{{ products.paginator.num_pages }}</p>
+      </div>
+  
+      {% if products.has_next %}
+          <div class="next">
+              <a href="?page={{ products.next_page_number }}">
+                  <p>Next</p>
+              </a>
+              <a href="?page={{ products.paginator.num_pages }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                      <g clip-path="url(#clip0_406_111)">
+                          <path d="M4.82666 2.5801L6.00666 1.4001L12.6067 8.0001L6.00666 14.6001L4.82666 13.4201L10.2467 8.0001L4.82666 2.5801Z" fill="#FBFCFE"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_406_111">
+                              <rect width="16" height="16" fill="white" transform="matrix(1 0 0 -1 0.5 16)"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </a>
+          </div>
+      {% endif %}
+  </div>
+  
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="{% block meta_description %}
+      {% endblock %}"
+    />
+    <meta
+      name="keywords"
+      content="{% block meta_keywords %}
+      {% endblock %}"
+    />
+    <title>{% block title %} {% endblock %}</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}" />
+    <!-- Add other SEO meta tags and CSS links as needed -->
+    {% block extra_head %} {% endblock %} {% load livereload_tags %} {% livereload_script %}
+  </head>
+  <body class="wrapper">
+    <header class="header-wrapper">
+      <div class="header-inner-wrapper">
+        <a href="{% url 'home'%}">
+        <img src="{% static 'img/Logo.png' %}" alt="Logo"/>
+      </a>
+        <ul id="nav" class="nav">
+          <a href="{% url 'home'%}">
+            <li id="nav-item" class="nav-item">home</li></a
+          >
+          <a href="">
+            <li id="nav-item" class="nav-item">Store</li>
+          </a>
+          <a href="{% url 'products'%}">
+            <li id="nav-item" class="nav-item">products</li></a
+          >
+          <a href="{% url 'contact' %}">
+            <li id="nav-item" class="nav-item">contact us</li>
+          </a>
+        </ul>
+
+        <div id="hamburger" class="harmburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+      <hr />
+      <div class="flex-end">
+        <div class="search-container">
+          <div class="search-inner-container">
+            <input
+              class="search-input"
+              placeholder="Search"
+              type="text"
+              name="search"
+              id="search"
+            />
+          </div>
+        </div>
+        <div class="icons">
+        <a href="">
+          <div class="cart-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+            >
+              <path
+                d="M8.00643 12H26.591L27.2577 9.33332H10.6731V6.66666H28.9654C29.7018 6.66666 30.2987 7.26362 30.2987 7.99999C30.2987 8.109 30.2854 8.21762 30.2589 8.32338L26.9255 21.6567C26.7773 22.2503 26.2439 22.6667 25.6321 22.6667H6.6731C5.93672 22.6667 5.33976 22.0697 5.33976 21.3333V5.33332H2.6731V2.66666H6.6731C7.40948 2.66666 8.00643 3.26362 8.00643 3.99999V12ZM8.00643 30.6667C6.53367 30.6667 5.33976 29.4728 5.33976 28C5.33976 26.5272 6.53367 25.3333 8.00643 25.3333C9.47919 25.3333 10.6731 26.5272 10.6731 28C10.6731 29.4728 9.47919 30.6667 8.00643 30.6667ZM24.0065 30.6667C22.5337 30.6667 21.3398 29.4728 21.3398 28C21.3398 26.5272 22.5337 25.3333 24.0065 25.3333C25.4793 25.3333 26.6731 26.5272 26.6731 28C26.6731 29.4728 25.4793 30.6667 24.0065 30.6667Z"
+                fill="#1F0404"
+              />
+            </svg>
+            <h2>( 0 )</h2>
+          </div>
+        </a>
+
+        {%if request.user.is_authenticated %}
+        <div class="auth-user">
+          <h2>Welcome, {{request.user.username}}</h2>
+          <div class="auth-icon">
+            <div id="login-icon" class="login-icon">
+              <img src="{% static 'img/login.svg' %}" alt="Login Icon" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                id="active"
+              >
+                <path
+                  d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"
+                  fill="#1F0404"
+                />
+              </svg>
+            </div>
+          </div>
+          {%else%}
+          <div id="login-icon" class="login-icon">
+            <img src="{% static 'img/login.svg' %}" alt="Login Icon" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              id="active"
+            >
+              <path
+                d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"
+                fill="#1F0404"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+    {%endif%}
+          
+        </div>
+      </header>
+      <div class="width">
+        {% if request.user.is_authenticated%}
+        <div id="login-container" class="login-container">
+          <div class="login-container-inner">
+            <div class="top">
+          <a href=""> 
+              <p>Already Logged in?<span>Logout</span></p>
+              </a>
+            </div>
+            <hr />
+          </div>
+        </div>
+        {%else%}
+        <div id="login-container" class="login-container">
+          <div class="login-container-inner">
+            <div class="top">
+              <a href">
+                 <p>Already have an account?<span>Login</span></p>
+              </a>
+            </div>
+            <hr />
+            <div class="top">
+              <a href="">
+                  <p>New here?<span>Register</span></p>
+              </a>
+            </div>
+          </div>
+        </div>
+        {%endif%}
+      </div>
+          </div>
+        </div>
+    <main>{% block content %} {% endblock %}</main>
+    <footer class="footer">
+      <div class="inner-footer">
+        <div class="inner-footer-item">
+          <div class="top-item">
+            <hr />
+            <img src="{% static 'img/LogoF.png' %}" alt="Logo" />
+            <hr />
+          </div>
+      
+        </div>
+        <h3>terms & Condition</h3>
+      </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

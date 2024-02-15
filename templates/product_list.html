@@ -1,0 +1,36 @@
+{% load static %}
+{% block content %}
+
+
+<div class="bottom">
+    {% for product in products %}
+        <div class="new-release-item">
+            <div class="relative">
+            {% if product.image %}
+            <img class="relative-img" src="{{ product.image.url }}" alt="{{ product.name }}" />
+            {% else %}
+            <img
+                class="relative-img"
+                src="{% static 'img/PR1.svg' %}"
+                alt="Placeholder Image"
+            />
+            {% endif %}
+
+            <img
+                class="absolute"
+                src="{% static 'img/FavoriteIcon.svg' %}"
+                alt="Favorite Icon"
+            />
+            </div>
+            <div class="name-container">
+            <div class="name-block">
+                <h4>{{product.name}}</h4>
+                <p>N {{product.price}}</p>
+            </div>
+            <img src="{% static 'img/Plus.svg' %}" alt="Favorite Icon" />
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

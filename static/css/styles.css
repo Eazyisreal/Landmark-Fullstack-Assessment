@@ -1,0 +1,2026 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+
+
+.add-t0o-wishlist:hover{
+  border: 1px solid #1F0404;
+  background: #1F0404;
+}
+
+.inner-cart{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.cart-items{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+  width : 100%
+}
+
+.cart-items h1{
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4.5rem;
+}
+
+.cart-items-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.cart-item{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cart-coupon{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+
+.cart-coupon input{
+  display: flex;
+  padding: 0.75rem 1rem;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: stretch;
+  border: 1px solid #B59191;
+  width: 33rem;
+  background: #FFF4F4;
+  outline: none;
+}
+
+.cart-coupon button{
+  display: flex;
+  padding: 1rem 2rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  background: #1F0404;
+  color: #FFF4F4;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  }
+.cart-info{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  border: 1px solid #B59191;
+}
+
+
+body {
+  background: #FFF4F4;
+
+}
+
+*::-webkit-scrollbar {
+  width: 0.25rem;
+  background-color: #FFF4F4;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1F0404;
+  border-radius: 1.2rem;
+  width: .25rem;
+}
+
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('../font/Neue.ttf') format('truetype');
+}
+
+
+.font-Neue {
+  font-family: 'Neue Montreal', sans-serif;
+}
+
+.header-wrapper {
+  display: flex;
+  padding: 1.5rem 4rem;
+  flex-direction: column;
+  gap: 1rem;
+  border-bottom: 1px solid #5F5353;
+}
+.login-header-wrapper {
+  display: flex;
+  padding: 1.5rem 4rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+.login-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.login-box-top{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30rem;
+}
+
+.auth-user{
+  display: flex;
+  gap: 1rem;
+}
+
+.auth-user h2{
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
+}
+
+.login-form label{
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+
+}
+
+
+.login-box-top h2{
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
+}
+
+.login-box-top p{
+  color: #786d6d;
+  font-family: "Neue Montreal", sans-serif;
+  font-size: 1.2rem;
+
+}
+
+.input-field{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.header-inner-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav a{
+  text-decoration: none;
+
+}
+
+.harmburger {
+  display: none;
+  cursor: pointer;
+}
+
+.harmburger .bar {
+  display: block;
+  width: 1.7rem;
+  height: .18rem;
+  margin: 0.20rem auto;
+  transition: all 0.3s ease-in-out;
+  background: #1F0404;
+}
+
+
+.sort{
+  display: flex;
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
+  align-items: flex-end;
+  gap: 0.625rem;
+  border: 1px solid #1F0404;
+}
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8.0625rem;
+}
+
+
+.sort-category.visible{
+  display: flex;
+}
+.sort-category{
+  display: none;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  border: 1px solid #CCC;
+  background: #FFF4F4;
+}
+
+.sort-category-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.sort-category-inner .top{
+  display: flex;
+  padding: 0.5rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  align-self: stretch;
+}
+
+.sort-category-inner .top a{
+    color: #1F0404;
+    font-family: Neue Montreal, sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+    text-transform: capitalize;
+}
+
+#active, #sort-active{
+  transform: rotate(0deg);
+}
+#active.visible, #sort-active.visible{
+  transform: rotate(180deg);
+}
+.prev{
+  display: flex;
+  padding: 1rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid #CCC;
+}
+
+.prev p{
+  color: #1F0404;
+  text-align: center;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem; /* 150% */
+}
+
+.next p{
+  color: #FBFCFE;
+  text-align: center;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem; 
+}
+.page-number{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.next{
+  display: flex;
+  padding: 1rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background: #1F0404;
+  width: 6.75rem;
+}
+
+.number-frame{
+  display: flex;
+  padding: 0.5rem 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  border-radius: 0.25rem;
+  border: 1px solid #CCC;
+}
+
+.nav-item {
+  color: #1F0404;
+  text-align: center;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+.footer-nav-item {
+  color: #ffff;
+  text-align: center;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.alert-success{
+  display: flex;
+  background-color: #FD3B2E;
+  justify-content: space-between;
+  padding: 2rem 1.2rem;              
+}
+
+
+.alert-success p{
+  color: #FFF4F4;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+.alert-success span{
+  color: #FFF4F4;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 2.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+hr {
+  background: #5F5353;
+  height: 0.0625rem;
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  padding: 0.5rem 0rem;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.625rem;
+  align-self: stretch;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.search-inner-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+a{
+  text-decoration: none;
+}
+
+.search-input {
+  display: flex;
+  width: 24.375rem;
+  padding: 0.75rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  background: #FFF4F4;
+  border: 1px solid rgba(31, 4, 4, 0.48);
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(31, 4, 4, 0.48);
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-icon {
+  display: flex;
+  height: 3rem;
+  padding: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.cart-icon h2 {
+
+  color: #FD3B2E;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.login-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+
+.footer {
+  display: flex;
+  padding-top: 6rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  width: 100%;
+}
+
+.inner-footer {
+  display: flex;
+  padding: 4rem;
+  flex-direction: column;
+  gap: 2rem;
+  background: #1F0404;
+  width: 100%;
+}
+.width{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding-right: 4rem;
+}
+
+.sort-width{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding-top: 2rem;
+}
+
+
+.map-width{
+  display: flex;
+  width: 100%;
+  height: 36.625rem;
+}
+.inner-footer h3 {
+  color: #FFF4F4;
+  text-align: right;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+
+.inner-footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+.top-item {
+  display: flex;
+  align-items: center;
+  gap: 3.6875rem;
+  width: 100%;
+}
+
+.bottom-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer-nav .nav-item {
+  color: #FFF4F4;
+  text-align: center;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  align-self: stretch;
+}
+
+.contact-info hr {
+  transform: rotate(90deg);
+  width: 10%;
+
+}
+
+.contact-infos {
+  display: flex;
+  padding: 2rem 0rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  flex: 1 0 0;
+}
+
+.social-nav {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  list-style: none;
+  align-items: center;
+}
+
+
+.social-nav .nav-item {
+  color: #FFF4F4;
+  text-align: center;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: capitalize;
+}
+
+.contact-infos-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.contact-infos-inner h2 {
+  color: #FFF4F4;
+  text-align: center;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75rem;
+  text-transform: uppercase;
+}
+
+.contact-infos-inner p {
+  color: #FFF4F4;
+  text-align: center;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: capitalize;
+}
+
+
+.hero {
+  display: flex;
+  padding: 6rem 4rem;
+  flex-direction: column;
+  gap: 0.625rem;
+  width: 100%;
+
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-inner h1 {
+  color: #1F0404;
+  text-align: center;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 12rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12.5rem;
+  display: flex;
+  white-space: nowrap;
+}
+
+.hero-image {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.about {
+  display: flex;
+  padding: 6rem 4rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+.about-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.about-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 75%;
+}
+
+.about-text-container h2 {
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 6.25rem;
+}
+
+.about-text-container p {
+  color: #1F0404;
+  font-family: Kanit;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 2rem;
+  text-transform: capitalize;
+}
+
+
+.about-text-container .btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.about-text-container .btn p {
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.about-inner img {
+  width: 100%;
+}
+
+.mobile-img {
+  display: none;
+}
+
+.new-release {
+  display: flex;
+  padding: 6rem 4rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+.new-release-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+}
+
+.new-release-inner .top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.new-release-inner .bottom, .wishlist-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch;
+}
+
+.new-release-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+  overflow: scroll;
+}
+
+.name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.name-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex: 1 0 0;
+}
+
+.name-block h4 {
+  color: #5F5F5F;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.name-block p {
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.75rem;
+  /* 116.667% */
+}
+
+.relative {
+  position: relative;
+  width: 100%;
+}
+
+.relative-img{
+  width: 100%;
+}
+
+.relative .img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.absolute {
+  position: absolute;
+  top: 5%;
+  left: 85%;
+}
+
+
+
+.top .top-outer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-self: stretch;
+}
+
+.top-outer-container p {
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+
+}
+
+.top-inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.top-inner-container h3 {
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 4.5rem;
+}
+
+.top-inner-container p {
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.inner-affilate {
+  background: url(../img/AffilateImage.svg);
+  width: 100%;
+  height: 35rem;
+}
+
+.inner-affilate-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  height: 100%;
+}
+
+.inner-affilate-content .text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 45%;
+}
+
+.inner-affilate-content .text h3 {
+  color: #FFF;
+  text-align: center;
+  font-family: Neue Montrea, sans-serif;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 4.5rem;
+}
+
+.inner-affilate-content .text p {
+  color: #FFF;
+  text-align: center;
+  font-family: Kanit;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 2rem;
+  text-transform: capitalize;
+  opacity: .7;
+}
+
+
+.inner-affilate-btn {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #FFF;
+  color: #FFF;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  background: transparent;
+  opacity: .7;
+}
+
+.newsletter {
+  background: url(../img/Newsletter.svg) no-repeat;
+  width: 100%;
+  height: 29rem;
+}
+
+
+.newsletter-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  height: 100%;
+}
+
+.newsletter-content .text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 60%;
+}
+
+.newsletter-content .text h3 {
+  color: #FFF;
+  text-align: center;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 4.5rem;
+}
+
+.newsletter-content .text p {
+  color: #FFF;
+  text-align: center;
+  font-family: Kanit;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 2rem;
+  text-transform: capitalize;
+  opacity: .7;
+}
+
+.email{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+
+.email-input{
+  display: flex;
+  width: 24.375rem;
+  padding: 0.75rem;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: stretch;
+  background: transparent;
+  border: 1px solid #FFF4F4;
+  outline: none;
+  color: #FFF;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+
+.email-input::placeholder{
+  color: #FFF;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.email .btn{
+  border: 1px solid #FFF;
+  background: #FFF;
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  padding: 1rem ;
+}
+
+
+.contact{
+  display: flex;
+  padding: 6rem 4rem;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+
+.contact-inner{
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+.contact-information{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.contact-info-text{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+
+.contact-info-text h1{
+  color: #1F0404;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4.5rem; /* 128.571% */
+  text-transform: capitalize;
+}
+
+.contact-info-text p{
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 120% */
+}
+
+
+.contact-info-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 1rem;
+  align-self: stretch;
+}
+
+.login-container{
+  display: none;
+}
+
+.login-container.visible{
+  display: flex;
+  width: 20.75rem;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  border: 1px solid #CCC;
+  background: #FFF4F4;
+}
+
+
+.login-container-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch;
+}
+
+.login-container-inner .top{
+  display: flex;
+  padding: 0.5rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  align-self: stretch;
+}
+
+.login-container-inner .top p{
+  color: #5F5F5F;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 120% */
+}
+
+.login-container-inner .top span{
+  color: #1F0404;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+.form-input{
+  display: flex;
+  padding: 0.75rem 0rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  align-self: stretch;
+  border: none;
+  background: #FFF4F4;
+  border-bottom: 1px solid #B59191;
+  outline: none;
+  resize: none;
+}
+
+
+.form-input::placeholder{
+  color: #5F5353;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.submit-btn-container{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.login-submit-btn-container{
+  display: flex;
+  width: 100%;
+}
+
+.submit-btn{
+  display: flex;
+  padding: 1rem 2rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  background: #1F0404;color: #FFF4F4;
+  font-family: Marcellus;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  white-space: nowrap;
+  outline: none;
+}
+.login-submit-btn{
+  display: flex;
+  padding: 1rem 2rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  background: #1F0404;
+  color: #FFF4F4;
+  font-family: Marcellus;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  white-space: nowrap;
+  outline: none;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.forgot-password-container{
+  display: flex;
+  padding: 1rem 0rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.625rem;
+  width: 100%;
+}
+.signup-container{
+  display: flex;
+  padding: 1rem 0rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  width: 100%;
+}
+
+
+.forgot-password-container p{
+  color: #1F0404;
+  font-family: Neue Montreal,sans-serif;
+  font-size: .75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+
+}
+.signup-container p{
+  color: #786d6d;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+.signup-container span{
+  color: #1F0404;
+}
+
+
+.error-messages{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.error-span{
+  color: #FF0000;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+}
+
+.messages{
+  list-style: none;
+}
+
+.faq-section{
+  display: flex;
+  padding: 6rem 4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.faq-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+
+.faq-inner-top{
+  display: flex;
+  padding-bottom: 4rem;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  border-bottom: 1px solid #AAB1B0;
+}
+.faq-inner-top-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faq-inner-top-text h2{
+  color: #1F0404;
+  text-align: center;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4.5rem; /* 128.571% */
+}
+
+
+.faq-inner-top-text p{
+  color: #4E0000;
+  text-align: center;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.faq-inner-bottom{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  align-self: stretch;
+}
+
+
+.question-container{
+  display: flex;
+  padding: 1rem 0.625rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  align-self: stretch;
+  border-bottom: 1px solid #AAB1B0;
+}
+
+.question-inner-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.question-text{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.question-text p{
+  color: #4E0000;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem; /* 160% */
+}
+
+.product-details-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6rem;
+  width: 100%;
+}
+
+.product-details-inner h1{
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 4.5rem; 
+}
+.details{
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+.details .images{
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+
+.images-col{
+  display: flex;
+  width: 12rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch;
+}
+
+.details-container{
+    display: flex;
+    gap: 5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1 0 0;
+}
+
+.details-container-top{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch;
+}
+
+.details-container-top h2{
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.details-container-top p{
+  color: #5F5F5F;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+  text-transform: capitalize;
+}
+
+.frame-black{
+  display: flex;
+  width: 3rem;
+  padding: 0.75rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background: #1F0404;
+}
+
+.frame{
+  display: flex;
+  width: 3rem;
+  padding: 0.75rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border: 1px solid #1F0404;
+}
+
+.frame p{
+  color: #1F0404;
+  font-family: Kanit;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.frame-black p{
+  color: #FFF4F4;
+  font-family: Kanit;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.details-container-middle{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.details-container-middle .colors{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+.details-container-middle .sizes{
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.details-container-bottom{
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch;
+}
+
+.details-container-bottom .wishlist{
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex: 1 0 0;
+  border: 1px solid #1F0404;
+}
+
+.details-container-bottom .cart{
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex: 1 0 0;
+  border: 1px solid #1F0404;
+  background: #1F0404;
+}
+
+.details-container-bottom .cart p{
+  color: #FFF4F4;
+  font-family: Kanit;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.5rem; /* 150% */
+  text-transform: capitalize;
+}
+
+.details-container-bottom .wishlist p{
+  color: #1F0404;
+  font-family: Kanit;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.5rem; /* 150% */
+  text-transform: capitalize;
+}
+
+
+
+.review-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem;
+  width: 100%;
+}
+
+.tabs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 40rem;
+}
+
+.tabs-inner{
+  display: flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  align-self: stretch;
+  border: 1px solid #1F0404;
+}
+
+
+.review-btn{
+  display: flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex: 1 0 0;
+  background: #1F0404;
+}
+
+.review-btn h3{
+  color: #FFF4F4;
+font-family: Neue Montreal,sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+  text-transform: uppercase;
+}
+
+.review-btn p{
+  color: #FD3B2E;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+  text-transform: uppercase;
+}
+
+
+.related-product-btn{
+  display: flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex: 1 0 0;
+}
+
+.related-product-btn p{
+  color: #1F0404;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.review-container{
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.review-form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch;
+}
+
+.review-form-text-container{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.review-form-text-container h2{
+  color: #1F0404;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.review-form-text-container p{
+  color: #3D3D3D;
+  font-family: Neue Montreal,sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+}
+
+@media only screen and (max-width: 1240px) {
+  .hero-inner h1 {
+    white-space: wrap;
+    line-height: 8.5rem;
+    font-size: 10rem;
+  }
+  
+}
+
+@media only screen and (max-width: 800px) {
+  .nav {
+    display: none;
+  }
+
+  .nav.visible{
+      display: flex;
+      background: #FFF4F4;
+      width: 100%;
+      flex-direction: column;
+      position: absolute;
+      top: 12%;
+      left: 0;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+  }
+
+  .nav-item.visble{
+    color: #FFF4F4;
+  }
+
+
+  .harmburger {
+    display: block;
+}
+
+.harmburger.visible .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.harmburger.visible .bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
+}
+
+.harmburger.visible .bar:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+  .header-wrapper, .login-header-wrapper {
+    padding: 1rem 1.25rem;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .flex-end {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .inner-footer {
+    padding: 4rem 1.25rem;
+  }
+
+  .top-item {
+    gap: 1.5rem;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-info {
+    flex-direction: column;
+  }
+
+  .contact-info hr {
+    transform: rotate(0deg);
+    width: 100%;
+  }
+
+  .inner-footer h3 {
+    text-align: center;
+  }
+
+  .hero-image {
+    overflow-x: scroll;
+  }
+
+  .hero-inner h1 {
+    white-space: wrap;
+    line-height: 8.5rem;
+    font-size: 8rem;
+  }
+
+  .hero {
+    display: flex;
+    padding: 4rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+  }
+
+  .about,
+  .new-release, .contact, .faq-section {
+    padding: 4rem 1.25rem;
+  }
+
+
+  .inner-affilate-content .text,
+  .newsletter-content .text {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .newsletter-content .text h3 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+
+  .newsletter-content .text p {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  .newsletter{
+    height: 18rem;
+  }
+
+.contact{
+  flex-direction: column;
+}
+
+  .new-release-inner .bottom, .wishlist-bottom{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media only screen and (max-width: 475px) {
+
+  .login-form{
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .auth-user h2{
+    display: none;
+  }
+  .hero-inner h1 {
+    white-space: wrap;
+    line-height: 8.5rem;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .new-release-inner .bottom, .wishlist-bottom {
+    flex-direction: column;
+    grid-template-columns: repeat( 1, 1fr);
+  }
+
+  .about-text-container {
+    width: 90%;
+  }
+
+  .about-text-container h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+
+  .about-text-container p {
+    font-size: 1.25rem;
+  }
+
+  .mobile-img {
+    display: block;
+  }
+
+  .desktop-img {
+    display: none;
+  }
+
+  .top-inner-container h3 {
+    font-size: 2.25rem;
+  }
+
+  .top-inner-container p {
+    font-size: 1rem;
+  }
+
+  .top-outer-container p {
+    font-size: 1rem;
+  }
+
+  .inner-affilate-content .text h3 {
+    font-size: 1.75rem;
+    line-height: 2.5rem;
+  }
+
+
+
+  .newsletter-content .text h3 {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+
+  }
+
+
+  .newsletter-content .text p {
+    font-size: .85rem;
+    line-height: 1.2rem;
+
+  }
+
+  .inner-affilate-content .text p {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+
+  .inner-affilate-btn {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  .inner-affilate,
+  .newsletter {
+    height: 25rem;
+  }
+
+  .inner-affilate-content,
+  .newsletter-content {
+    gap: 2rem;
+  }
+
+  .inner-affilate-content .text,
+  .newsletter-content .text, .email-input {
+    width: 100%;
+  }
+
+.newsletter{
+  height: 15rem;
+}
+
+  .name-block h4 {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  .name-block p {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+
+  .pagination{
+    gap: .5rem;
+  }
+
+.width{
+  padding-right: 0;
+}
+
+.contact-info-text h1{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.contact-info-text p{
+  font-size: 1rem;
+  white-space: nowrap;
+  line-height: 1.5rem;
+}
+
+.contact-info-text{
+  gap: .5rem;
+}
+
+.faq-inner-top-text h2{
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+.faq-inner-top-text p{
+  font-size: 1rem;
+}
+
+.question-text p{
+  font-size: 1rem;
+}
+
+.email{
+  gap: .5rem;
+  padding: 1rem;
+
+}
+
+.email .btn{
+  font-size: .9rem;
+}
+
+.cart-icon svg, .login-icon img{
+  width: 1.5rem;
+}
+
+.icons{
+  gap: .5rem;
+}
+
+.cart-icon h2{
+  font-size:.8rem ;
+}
+
+}

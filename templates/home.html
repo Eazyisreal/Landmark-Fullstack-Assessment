@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block meta_description %}
+  Your meta description for the home page goes here.
+{% endblock %}
+
+{% block meta_keywords %}
+  Your meta keywords for the home page go here.
+{% endblock %}
+
+{% block title %}
+  Urban Styles | Home
+{% endblock %}
+
+{% block extra_head %}
+  {# Add any additional head content specific to the home page here #}
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero">
+    <div class="hero-inner">
+        <h1>URBAN STYLES</h1>
+        <div class="hero-image">
+            <img src="{% static 'img/Image1.svg' %}" alt="Urban Style Clothing" />
+            <img src="{% static 'img/Image2.svg' %}" alt="Urban Style Clothing" />
+            <img src="{% static 'img/Image3.svg' %}" alt="Urban Style Clothing" />
+        </div>
+    </div>
+</div>
+<!-- About Section -->
+<div id="about" class="about">
+    <div class="about-inner">
+        <div class="about-text-container">
+            <h2>About</h2>
+            <p>At Urban Styles, we're not just a fashion destination; we're a cultural movement.
+                We understand that clothing isn't just something you wear; it's a statement, 
+                a reflection of your identity and the vibrant urban world you inhabit
+            </p>
+            <div class="btn">
+                <p>See More</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="16" viewBox="0 0 25 16" fill="none">
+                    <path d="M24.7071 8.70711C25.0976 8.31658 25.0976 7.68342 24.7071 7.29289L18.3431 0.928932C17.9526 0.538408 17.3195 0.538408 16.9289 0.928932C16.5384 1.31946 16.5384 1.95262 16.9289 2.34315L22.5858 8L16.9289 13.6569C16.5384 14.0474 16.5384 14.6805 16.9289 15.0711C17.3195 15.4616 17.9526 15.4616 18.3431 15.0711L24.7071 8.70711ZM0 9H24V7H0V9Z" fill="#1F0404"/>
+                </svg>
+            </div>
+        </div>
+        <img class="desktop-img" src="{% static 'img/Aboutimage.svg' %}" alt="Urban Style Clothing" />
+        <img class="mobile-img" src="{% static 'img/MobileAboutimage.svg' %}" alt="Urban Style Clothing" />
+    </div>
+</div>
+
+<!-- New Release -->
+<div class="new-release">
+    <div class="new-release-inner">
+        <div class="top">
+            <div class="top-outer-container">
+                <div class="top-inner-container">
+                    <h3>New Release</h3>
+                    <p>All items available for purchase</p>
+                </div>
+                <a href=""> <p>SEE ALL</p></a>
+            </div>
+        </div>
+        
+        <div class="bottom">
+            {% for new_release in new_release %}
+                <div class="new-release-item">
+                    <div class="relative">
+                        <img class="img" src="{{ new_release.image.url }}" alt="{{ new_release.name }}" />
+                        <img class="absolute" src="{% static 'img/FavoriteIcon.svg' %}" alt="Favorite Icon" />
+                    </div>
+                    <div class="name-container">
+                        <div class="name-block">
+                            <h4>{{ new_release.name }}</h4>
+                            <p>N{{ new_release.price }} (${{ new_release.price_in_usd }})</p>
+                        </div>
+                        <img src="{% static 'img/Plus.svg' %}" alt="Favorite Icon" />
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+
+<!-- Affilate -->
+<div class="about">
+    <div class="inner-affilate">
+      <div class="inner-affilate-content">
+        <div class="text">
+            <h3>Own a store? Become Our Affiliate</h3>
+            <p>Become a part of the chorus and unlock exciting opportunities for mutual growth and success.</p>
+        </div>
+
+
+       <a href=""> <button class="inner-affilate-btn"> contact sales <svg xmlns="http://www.w3.org/2000/svg" width="25" height="16" viewBox="0 0 25 16" fill="none">
+        <path d="M24.7071 8.70711C25.0976 8.31658 25.0976 7.68342 24.7071 7.29289L18.3431 0.928932C17.9526 0.538408 17.3195 0.538408 16.9289 0.928932C16.5384 1.31946 16.5384 1.95262 16.9289 2.34315L22.5858 8L16.9289 13.6569C16.5384 14.0474 16.5384 14.6805 16.9289 15.0711C17.3195 15.4616 17.9526 15.4616 18.3431 15.0711L24.7071 8.70711ZM0 9H24V7H0V9Z" fill="white"/>
+      </svg></button></a>
+      </div>
+    </div>
+</div>
+
+
+<!-- All Products -->
+<div class="new-release">
+    <div class="new-release-inner">
+        <div class="top">
+            <div class="top-outer-container">
+                <div class="top-inner-container">
+                    <h3>All Products</h3>
+                    <p>All items available for purchase</p>
+                </div>
+                <a href=""> <p>SEE ALL</p></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- NewsLetter -->
+<div class="about">
+    <div class="newsletter">
+        <div class="newsletter-content">
+            <div class="text">
+                <h3>Be The First To Know About Our New Release</h3>
+                <p>amazing product on its way, Subscribe and be the first to know when we release new product.</p>
+            </div>
+
+            <form id="subscription-form" method="post" action="" class="email">
+                {% csrf_token%}
+                {% render_field form.email type='email' placeholder='Enter your email' class+='email-input'%}
+                <button id="subscribe-btn" class="btn">Subscribe</button>
+            </form>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %} 
+{% load widget_tweaks %}
+
+{% block meta_description %} Your meta description for the home page goes here. {% endblock %} 
+{% block meta_keywords %} Your meta keywords for the home page go here. {% endblock %} 
+{%block title %} Urban Styles | Product Details {% endblock %} 
+{% block extra_head %}{# Add any additional head content specific to the home page here #} {% endblock%}
+
+{% block content %}
+    <div class="new-release">
+        <div class="product-details-inner">
+            <h1>Product Details</h1>
+            <div class="details">
+                <div class="images">
+                    {% if product.image %}
+                    <img class="relative-img" src="{{ product.image.url }}" alt="{{ product.name }}" />
+                    {% else %}
+                    <img
+                        class="relative-img"
+                        src="{% static 'img/PR1.svg' %}"
+                        alt="Placeholder Image"
+                    />
+                    {% endif %}
+                </div>
+
+                <div class="details-container">
+                    <div class="details-container-top">
+                        <h2>{{product.name}}</h2>
+                        <p>{{product.description}}</p>
+                        <h2>N {{product.price}}</h2>
+                    </div>
+                    <div class="details-container-middle">
+                        <div class="colors">
+                            <img src="{% static 'img/color.svg' %}" alt="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="16" fill="#FD3B2E"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="16" fill="#1F0404"/>
+                            </svg>
+                        </div>
+
+                        <div class="sizes">
+                            <div class="frame-black">
+                                <p>XL</p>
+                            </div>
+                            <div class="frame">
+                                <p>L</p>
+                            </div>
+                            <div class="frame">
+                                <p>M</p>
+                            </div>
+                            <div class="frame">
+                                <p>S</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-container-bottom">
+                        <div class="wishlist">
+                            <a href="">
+                                <p>ADD TO WISHLIST</p>
+                            </a>
+                        </div>
+                        <div class="cart">
+                            <a href="">
+                                <p>ADD TO CART</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review -->
+    <div class="new-release">
+        <div class="review-inner">
+            <div class="tabs">
+                <div class="tabs-inner">
+                    <div class="review-btn">
+                        <h3>Review </h3>
+                        <p>(14)</p>
+                    </div>
+
+                    <div class="related-product-btn">
+                        <p>related product</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-container">
+                <div class="reviews">
+                    {% if reviews %}
+                    <ul>
+                        {% for review in reviews %}
+                            <li>
+                                <strong>{{ review.user.first_name }} {{ review.user.last_name }}</strong>
+                                <p>Rating: {{ review.rating }}/5</p>
+                                <p>{{ review.comment }}</p>
+                                <p>Posted on: {{ review.timestamp }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No reviews for this product yet.</p>
+                {% endif %}
+                </div>
+
+                <div class="review-form-container">
+                    <div class="review-form-text-container">
+                        <h2>add review</h2>
+                        <p>Note: Your Mail Wont Show On Review</p>
+                    </div>
+
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <form method="post" action="{% url 'products'%}" class="contact-info-form">
+                    {% csrf_token%}
+                    {% render_field form.name type='text' placeholder='Enter your full name' class+='form-input'%}
+                    {% render_field form.email type='email' placeholder='Enter your email' class+='form-input'%}
+                    {% render_field form.comment type='text' placeholder='Write message' class+='form-input'%}
+    
+                    <div class="submit-btn-container">
+                      <button class="submit-btn"> 
+                        Submit
+                      </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
