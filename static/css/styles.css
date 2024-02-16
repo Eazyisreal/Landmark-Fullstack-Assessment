@@ -1853,6 +1853,7 @@ font-family: Neue Montreal,sans-serif;
 
 @media only screen and (max-width: 800px) {
 
+
   .inner-cart{
     flex-direction: column;
     gap: 3rem;
@@ -2014,6 +2015,22 @@ font-family: Neue Montreal,sans-serif;
 
 @media only screen and (max-width: 475px) {
 
+  .cart-item-inner {
+    flex-direction: column;
+  }
+
+  .cart-item-image{
+    width: 100%;
+  }
+
+  .cart-item-quantity{
+    flex-direction: row;
+    width:  100%;
+    justify-content: center;
+  }
+  .cart-items-container, .cart-item{
+    width: 100%
+  }
   .login-form{
     width: 100%;
     padding: 0 1rem;

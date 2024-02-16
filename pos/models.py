@@ -27,7 +27,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.IntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    store = models.ForeignKey(Store, on_delete=models.CASCADE)
+    store = models.ForeignKey(Store, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='product_images/', null=True, blank=True)
     description = models.TextField(default="")
     
