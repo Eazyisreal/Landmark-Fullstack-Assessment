@@ -16,6 +16,8 @@ class Category(models.Model):
 class Store(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=255)
+    description = models.TextField(default="")
+    image = models.ImageField(upload_to='store_images/', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -26,6 +28,9 @@ class Product(models.Model):
     quantity = models.IntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='product_images/', null=True, blank=True)
+    description = models.TextField(default="")
+    
 
     def __str__(self):
         return self.name

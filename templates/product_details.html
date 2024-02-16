@@ -57,83 +57,17 @@
                         </div>
                     </div>
                     <div class="details-container-bottom">
-                        <div class="wishlist">
-                            <a href="">
-                                <p>ADD TO WISHLIST</p>
-                            </a>
-                        </div>
-                        <div class="cart">
-                            <a href="">
-                                <p>ADD TO CART</p>
-                            </a>
-                        </div>
+                            <form class="cart" action="{% url 'add_to_cart' product.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="product_id" value="{{ product.id }}">
+                                <button class="cart" type="submit">ADD TO CART</button>
+                            </form>
                     </div>
+                    
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Review -->
-    <div class="new-release">
-        <div class="review-inner">
-            <div class="tabs">
-                <div class="tabs-inner">
-                    <div class="review-btn">
-                        <h3>Review </h3>
-                        <p>(14)</p>
-                    </div>
 
-                    <div class="related-product-btn">
-                        <p>related product</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-container">
-                <div class="reviews">
-                    {% if reviews %}
-                    <ul>
-                        {% for review in reviews %}
-                            <li>
-                                <strong>{{ review.user.first_name }} {{ review.user.last_name }}</strong>
-                                <p>Rating: {{ review.rating }}/5</p>
-                                <p>{{ review.comment }}</p>
-                                <p>Posted on: {{ review.timestamp }}</p>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>No reviews for this product yet.</p>
-                {% endif %}
-                </div>
-
-                <div class="review-form-container">
-                    <div class="review-form-text-container">
-                        <h2>add review</h2>
-                        <p>Note: Your Mail Wont Show On Review</p>
-                    </div>
-
-                    {% if messages %}
-                    <ul class="messages">
-                        {% for message in messages %}
-                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-                <form method="post" action="{% url 'products'%}" class="contact-info-form">
-                    {% csrf_token%}
-                    {% render_field form.name type='text' placeholder='Enter your full name' class+='form-input'%}
-                    {% render_field form.email type='email' placeholder='Enter your email' class+='form-input'%}
-                    {% render_field form.comment type='text' placeholder='Write message' class+='form-input'%}
-    
-                    <div class="submit-btn-container">
-                      <button class="submit-btn"> 
-                        Submit
-                      </button>
-                    </div>
-                </form>
-                </div>
-            </div>
-        </div>
-    </div>
 {% endblock %}

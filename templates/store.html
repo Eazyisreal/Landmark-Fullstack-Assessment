@@ -2,7 +2,7 @@
 {% load static %} 
 {% block meta_description %} Your meta description for the home page goes here. {% endblock %} 
 {% block meta_keywords %} Your meta keywords for the home page go here. {% endblock %} 
-{%block title %} Urban Styles | All Product {% endblock %} 
+{%block title %} Urban Styles | Store {% endblock %} 
 {% block extra_head %}{# Add any additional head content specific to the home page here #} {% endblock%}
 
 {% block content %}
@@ -12,64 +12,34 @@
     <div class="top">
       <div class="top-outer-container">
         <div class="top-inner-container">
-          <h3>All Products</h3>
-        </div>
-        <div id="sort" class="sort">
-          <p>Sort by</p>
-          <svg
-            id="sort-active"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"
-              fill="#1F0404"
-            />
-          </svg>
-        </div>
-      </div>
-      <div class="sort-width">
-        <div id="sort-category" class="sort-category">
-          <div class="sort-category-inner">
-            {% for category in categories %}
-              <div class="top">
-                  <a href="{% url 'all_products' category.name %}" {% if category.name == selected_category %}class="selected"{% endif %}>{{ category.name }}</a>
-              </div>
-              <hr />
-            {% endfor %}
-          </div>
+          <h3>All Stores</h3>
         </div>
       </div>
     </div>
 
     <div class="bottom">
-        {% for product in products %}
+        {% for store in stores %}
             <div class="new-release-item">
               <div class="relative">
-                  <a href="{% url 'product_details' product.name %}">
+          <a href="">
 
-                      {% if product.image %}
-                      <img class="relative-img" src="{{ product.image.url }}" alt="{{ product.name }}" />
-                      {% else %}
-                      <img
-                          class="relative-img"
-                          src="{% static 'img/PR1.svg' %}"
-                          alt="Placeholder Image"
-                      />
-                      {% endif %}
-                  </a>
+                {% if store.image %}
+                <img class="relative-img" src="{{ store.image.url }}" alt="{{ store.name }}" />
+                {% else %}
+                <img
+                    class="relative-img"
+                    src="{% static 'img/PR1.svg' %}"
+                    alt="Placeholder Image"
+                />
+                {% endif %}
+              </a>
+          
               </div>
               <div class="name-container">
-                    <div class="name-block">
-                        <h4>{{product.name}}</h4>
-                        <p>N {{product.price}}</p>
-                    </div>
-                    <a href="{% url 'add_to_cart' product.id %}">
-                        <img class="add-to-cart"  data-product-id="{{ product.id }}" src="{% static 'img/Plus.svg' %}" alt="Cart Icon" />
-                    </a>
+              <div class="name-block">
+                  <h4>{{store.name}}</h4>
+                  <p> {{store.location}}</p>
+              </div>
               </div>
           </div>
         {% endfor %}
@@ -91,24 +61,24 @@
                       </defs>
                   </svg>
               </a>
-              <a href="?page={{ products.previous_page_number }}">
+              <a href="?page={{stores.previous_page_number }}">
                   <p>Previous</p>
               </a>
           </div>
       {% endif %}
   
       <div class="page-number">
-          <div class="number-frame">{{ products.number }}</div>
+          <div class="number-frame">{{ stores.number }}</div>
           <p>of</p>
-          <p>{{ products.paginator.num_pages }}</p>
+          <p>{{ stores.paginator.num_pages }}</p>
       </div>
   
       {% if products.has_next %}
           <div class="next">
-              <a href="?page={{ products.next_page_number }}">
+              <a href="?page={{stores.next_page_number }}">
                   <p>Next</p>
               </a>
-              <a href="?page={{ products.paginator.num_pages }}">
+              <a href="?page={{ stores.paginator.num_pages }}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                       <g clip-path="url(#clip0_406_111)">
                           <path d="M4.82666 2.5801L6.00666 1.4001L12.6067 8.0001L6.00666 14.6001L4.82666 13.4201L10.2467 8.0001L4.82666 2.5801Z" fill="#FBFCFE"/>

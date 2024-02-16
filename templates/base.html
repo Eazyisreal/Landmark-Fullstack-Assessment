@@ -31,7 +31,7 @@
           <a href="{% url 'home'%}">
             <li id="nav-item" class="nav-item">home</li></a
           >
-          <a href="">
+          <a href="{%url 'stores' %}">
             <li id="nav-item" class="nav-item">Store</li>
           </a>
           <a href="{% url 'products'%}">
@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="icons">
-        <a href="">
+        <a href="{% url 'cart' %}">
           <div class="cart-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
                 fill="#1F0404"
               />
             </svg>
-            <h2>( 0 )</h2>
+            <h2>( {{total_items_in_cart}} )</h2>
           </div>
         </a>
 
@@ -130,7 +130,7 @@
         <div id="login-container" class="login-container">
           <div class="login-container-inner">
             <div class="top">
-          <a href=""> 
+          <a href="{%url 'logout'%}"> 
               <p>Already Logged in?<span>Logout</span></p>
               </a>
             </div>
@@ -141,13 +141,13 @@
         <div id="login-container" class="login-container">
           <div class="login-container-inner">
             <div class="top">
-              <a href">
+              <a href={% url 'login'%}>
                  <p>Already have an account?<span>Login</span></p>
               </a>
             </div>
             <hr />
             <div class="top">
-              <a href="">
+              <a href="{%url 'signup'%}">
                   <p>New here?<span>Register</span></p>
               </a>
             </div>

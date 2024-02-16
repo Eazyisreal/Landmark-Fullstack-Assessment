@@ -1,6 +1,8 @@
 const loginIcon = document.getElementById('login-icon');
 const loginContainer = document.getElementById('login-container')
 const hamburger = document.getElementById('hamburger');
+const messageHamburger = document.getElementById('message-hamburger');
+const successAlert = document.getElementById('success-alert');
 const nav = document.getElementById('nav');
 const navItem = document.getElementById('nav-item');
 const active = document.getElementById('active');
@@ -10,39 +12,32 @@ const sort = document.getElementById('sort');
 const cart = document.querySelectorAll('.add-to-cart');
 const wishlist = document.querySelectorAll('.add-to-wishlist');
 const absolute = document.querySelector(".absolute")
+const cartItemQuantityElements = document.querySelectorAll('.cart-item-quantity');
 
+cartItemQuantityElements.forEach(element => {
+    const quantityInput = element.querySelector('input[name="quantity"]');
+    const decrementButton = element.querySelector('.decrement');
+    const incrementButton = element.querySelector('.increment');
+
+    decrementButton.addEventListener('click', () => {
+        let quantity = parseInt(quantityInput.value);
+        if (quantity > 1) {
+            quantity--;
+            quantityInput.value = quantity; 
+        }
+    });
+
+    incrementButton.addEventListener('click', () => {
+        let quantity = parseInt(quantityInput.value);
+        quantity++;
+        quantityInput.value = quantity; 
+    });
+});
 
 
 cart.forEach(img => {
     img.addEventListener('click', addToCart)
 })
-
-
-wishlist.forEach(img => {
-    img.addEventListener('click', addToWishlist)
-})
-
-function addToWishlist(event) {
-  const productId = event.target.getAttribute('data-product-id');
-  fetch(`/wishlist/${productId}/`)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error(`Error adding to wishlist: ${response.statusText}`);
-      }
-    })
-    .then(data => {
-      console.log('Response Data:', data);
-      // Display the message to the user
-      alert(data.message); // Or update the UI in some way
-    })
-    .catch(error => {
-      console.error('Error adding to wishlist:', error);
-      console.error(error.stack); // Log the full error stack trace
-
-    });
-}
 
 
 
@@ -70,6 +65,11 @@ function toggleLoginIcon() {
 };
 
 
+function closeMessage(){
+  successAlert.classList.toggle('visible');
+}
+
+
 
 
 function toggleMobile() {
@@ -87,19 +87,5 @@ function toggleProducts(){
 loginIcon.addEventListener('click', toggleLoginIcon);
 hamburger.addEventListener('click', toggleMobile);
 sort.addEventListener('click', toggleProducts);
+messageHamburger.addEventListener('click', closeMessage);
 
-setTimeout(function() {
-  var successAlert = document.getElementById('success-alert');
-  if (successAlert) {
-      successAlert.classList.add('hide');
-  }
-}, 1500);
-
-// Add animation effect when hiding the success message
-document.addEventListener('DOMContentLoaded', function() {
-  var successAlert = document.getElementById('success-alert');
-  if (successAlert) {
-      successAlert.addEventListener('transitionend', function() {
-          successAlert.style.display = 'none';
-      });
-  }

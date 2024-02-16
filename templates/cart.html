@@ -1,0 +1,58 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block meta_description %} Your meta description for the home page goes here. {%endblock %} 
+{% block meta_keywords %} Your meta keywords for the home page go here. {% endblock %} 
+{% block title %} Urban Styles | Cart {% endblock %} 
+{%block extra_head %} {# Add any additional head content specific to the home pagehere #} {% endblock %} 
+{% block content %}
+{% include 'messages.html' %}
+<div class="about">
+    <div class="inner-cart">
+        <div class="cart-items">
+            <h1>Carts</h1>
+            <div class="cart-items-container">
+                <div class="cart-item">
+                        {% for product in products_in_cart %}
+                        <div class="cart-item-inner">
+                            <a href="{% url 'remove_from_cart' product.id %}">
+                                <img class="delete-icon" src="{% static 'img/delete.svg' %}" alt="delete icon"/>
+                            </a>
+                            <div class="cart-item-image">
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200px" height="200px">
+                            </div>
+                            <div class="cart-item-details">
+                                <h2>{{ product.name }}</h2>
+                                <h3>N {{ product.price }}</h3>
+                            </div>  
+                            <div class="cart-item-quantity" data-product-id="{{ product.id }}" data-quantity="{{ cart_items.product_id }}">
+                                <button class="increment">+</button>
+                                <input type="text" name="quantity" value="1">
+                                <button class="decrement">-</button>
+                            </div>   
+                        </div>
+                        {% endfor %}  
+                </div>
+            </div>
+        </div>
+        <div class="cart-info">
+            <h2>Order summary</h2>
+            <div class="cart-info-inner">
+                <div class="cart-info-item">
+                    <h2>Cart Item</h2>
+                    <h3>{{ total_items_in_cart }}</h3>
+                </div>
+                <div class="cart-info-item">
+                    <h2>Sub Total</h2>
+                    <h3>N {{ total_price }}</h3>
+                </div>
+                <div class="cart-info-item">
+                    <h2>Shipping</h2>
+                    <h3>Free</h3>
+                </div>
+                <div class="cart-info-item">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

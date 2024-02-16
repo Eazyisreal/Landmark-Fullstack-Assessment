@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SignUp | SUNSHINE </title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}" />
+     {% load livereload_tags %}
+</head>
+<body class="wrapper">
+    <header class="login-header-wrapper">
+        <div class="header-inner-wrapper">
+          <a href="{% url 'home'%}">
+            <img src="{% static 'img/Logo.png' %}" alt="Logo"
+          /></a>
+        </div>
+    </header>
+    <div class="login-box">
+        <div class="login-box-top">
+            <h2>Sign Up</h2>
+            <p>Register now to securely access your account with ease.</p>
+        </div>
+        <form method="post" action="{% url 'signup'%}" class="login-form">
+            {% csrf_token%}
+                <div class="input-field">
+                    <label for="email"> Username</label>
+                    <input type="text" name="username" placeholder='Username' class="form-input" required id="id_username">
+                </div>
+                <div class="input-field">
+                    <label for="email"> Email Address</label>
+                    <input type="email" name="email" placeholder='Email Address' class="form-input" required id="id_email">
+                </div>
+                <div class="input-field">
+                    <label for="email"> Password</label>
+                    <input type="password" name="password1" placeholder='Password' class="form-input" required id="id_password1">
+                </div>
+                <div class="input-field">
+                    <label for="email">Confirm Password</label>
+                    <input type="password" name="password2" placeholder='Password' class="form-input" required id="id_password2">
+                </div>
+            <div class="login-submit-btn-container">
+              <button class="login-submit-btn"> 
+                Sign Up
+              </button>
+            </div>
+            <div class="error-messages">
+                {% if form.email.errors %}
+                <span class="error-span">
+                  <strong>Error:</strong> {{ form.email.errors }}
+                </span>
+                {% endif %} {% if form.password1.errors %}
+                <span class="error-span">
+                  <strong>Error:</strong> {{ form.password1.errors }}
+                </span>
+                {% endif %} {% if form.password2.errors %}
+                <span class="error-span">
+                  <strong>Error:</strong> {{ form.password2.errors }}
+                </span>
+                {% endif %}
+              </div>
+
+            <div class="signup-container">
+                <p>Already a User? <a href="{% url 'login' %}"><span>Login</span></a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
